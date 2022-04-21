@@ -34,13 +34,13 @@
     box-shadow: 0 3 15px 3px;
     color: rgba(255, 255, 255, 0.88);
   }
-
-  .cityLocationFS {
+  .cardFS {
     font-size: 30px;
     font-weight: bold;
     line-height: 37px;
     color: rgba(255, 255, 255, 0.7);
   }
+
   .titleFS {
     color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
@@ -57,11 +57,6 @@
     font-size: 30px;
     font-weight: regular;
   }
-  .boldFS {
-    font-size: 17px;
-    color: rgba(255, 255, 255, 0.88);
-    font-weight: bold;
-  }
   .textFS {
     font-size: 19px;
     color: rgba(255, 255, 255, 0.7);
@@ -75,10 +70,8 @@
     color: rgba(255, 255, 255, 0.7);
   }
     
-  .smallSize {
-    width: 20px;
-  }
-   .searchbar{
+  .searchbar,
+  .searchbar--card {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +79,14 @@
     transition: 0.4s all;
     margin-bottom: 6px;
   }
-
+  /* .input_setting {
+    padding: 5px;
+    margin-right: 3px;
+    border-radius: 20px;
+  }
+  .input_setting:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  } */
   .input_text {
     background-color: rgba(255, 255, 255, 0.3);
     outline: none;
@@ -108,9 +108,89 @@
     border-radius: 0 10px 10px 0;
   }
 
+  .card_section {
+    background-color: #0e1544;
+    min-width: 300px;
+    overflow: scroll;
+  }
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    overflow: scroll;
+    height: 40.8rem;
+  }
+  .card,
+  .addCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    padding: 0 20px;
+    margin: 10px;
+    min-width: 240px;
+    min-height: 80px;
+    position: relative;
+    transition: 1s all;
+  }
+  .card:hover .delete,
+  .addCard:hover .delete {
+    visibility: visible;
+  }
+  .card:hover .delete:hover,
+  .addCard:hover .delete:hover {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .card_title_section {
+    padding: 10px;
+  }
+  .delete {
+    position: absolute;
+    visibility: hidden;
+    right: 8px;
+    top: 8px;
+    transition: 0.2s all;
+  }
+  .card_temp {
+    text-align: center;
+  }
+  .addCard {
+    background: linear-gradient(90deg, #139ba0, rgba(39, 146, 179, 0.972));
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .searchbar--card {
+    padding: 0;
+  }
+  .card_input {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    background-color: transparent;
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.5s all;
+  }
+  .addbutton {
+    cursor: pointer;
+    transition: 0.3s all;
+    width: 17px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #496c9b38;
+    padding: 10px;
+  }
 
   /* CSS OF MY BOX */
   .setting {
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -213,6 +293,7 @@
   }
 
   /* section1 */
+
   .today {
     background-color: #0e1544;
     flex-grow: 1;
@@ -231,6 +312,7 @@
     display: flex;
     align-items: flex-end;
   }
+
   .tempblock {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -297,17 +379,11 @@
       font-size: 120px;
       line-height: normal;
     }
-    .medCloud {
-      width: 90px;
-    }
   }
   @media (max-width: 1008px) {
     .whole {
       display: flex;
       flex-direction: column;
-    }
-    .forecast_section {
-      padding: 15px;
     }
     .card_title_section {
       padding-left: 15px;
@@ -323,7 +399,6 @@
     .btnWrapper {
       margin-left: 10px;
     }
-   
     .area1 {
       margin: 0;
     }
@@ -332,9 +407,6 @@
     }
     .area2 {
       margin: 0 5px;
-    }
-    .forecast_section {
-      padding-bottom: 10px;
     }
     .cityLocationFS {
       font-size: 26.9px;
@@ -364,4 +436,78 @@
       width: 270px;
     }
   }
+
+
+
+
+
+
+
+
+
+  /* TODO ADDED */
+  .button {
+    height: 2rem;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 0.9rem;
+    background-color: white;
+    color: rgb(46, 46, 46);
+    border-color: transparent;
+    padding: 0.5rem;
+    margin-left: 20px;
+    /* border: 1px solid white; */
+    border-radius: 0.3rem;
+    display: inline-block;
+    transition: 0.3s;
+  }
+  
+  .button:hover {
+    cursor: pointer;
+    filter: brightness(0.7);
+  }
+  
+   
+  
+  .card_collection {
+    /* align-items: center; */
+    padding-left: 0px;
+    /* border-radius: 12px; */
+    margin: 10px;
+    /* min-width: 240px; */
+    /* min-height: 80px; */
+   
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+  }
+  
+  .todo-collection__item {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 20px 10px;
+    background: linear-gradient(to top, #642b73, #c6426e);
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.6);
+  
+    min-width: 240px;
+    min-height: 50px;
+    position: relative;
+  }
+  
+  .todo-collection__item__title {
+    /* display: flex; */
+    /* flex-direction: column; */
+    justify-content: center;
+    /* margin-left: 0.5rem; */
+    /* overflow-x: auto; */
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
 

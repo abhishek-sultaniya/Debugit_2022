@@ -6,7 +6,7 @@ const api = {
   var l=0;
   //m for longitude 
   var m=0;
-
+  var tt=0;
   // bc stors button count
   var bc=0,mc=0;
   // gt stores global temprature
@@ -46,12 +46,6 @@ const api = {
           let temp = document.querySelector('.temp');
            gt=Math.round(data.main.temp);
           temp.innerHTML = `${Math.round(data.main.temp)}<span>°c</span>`;
-          // if(bc%2 !=0)
-          // {
-          //   var k=(a*9/5)+32;
-          //   temp.innerHTML = `${k}<span>°F</span>`;
-          // }
-
           // 4
           let now = new Date();
           console.log(now.getFullYear()); 
@@ -133,8 +127,8 @@ const api = {
       {
         console.log(weather)
         mc=1;
-    let city = document.querySelector('.location');
-    city.innerText = `${weather.name}, ${weather.sys.country}`;
+      let city = document.querySelector('.location');
+      city.innerText = `${weather.name}, ${weather.sys.country}`;
   
     console.log(new Date(weather.dt*1000-(3600*5500)+(((weather.timezone)*1000)))); // My location time
     console.log(new Date(weather.dt*1000-(3600*5500))); // Greenwhich time extracted
@@ -189,10 +183,19 @@ const api = {
     console.log("Toshiba")
     console.log(boxer.style.visibility)
     console.log("Toshiba22")
-    if(boxer.style.visibility=="hidden")
+    if(tt==0)
+    {
+      boxer.style.visibility="visible";
+      tt++;
+    }
+    else
+    {
+          if(boxer.style.visibility=="hidden")
     boxer.style.visibility="visible"
     else
     boxer.style.visibility="hidden"
+    }
+
   }
 
   const unit = document.querySelector('.setting_temp');
@@ -249,3 +252,63 @@ const api = {
     console.log("Yo checker22")
   }
 
+
+//todoForm
+const todoForm = document.querySelector(".addCard")
+const todoInput = document.querySelector(".card_input");
+const todoCollection = document.querySelector(".card_collection");
+
+todoForm.addEventListener("click", addTodo);
+
+function addTodo(e) 
+{
+  console.log("krpa")
+  if (todoInput.value=== "") {
+    // alert to indicate that the user must input something
+    alert("enter something!");
+  } 
+  else 
+  {
+    // create elements
+    // li
+    console.log(todoInput.value);
+    const li = document.createElement("li");
+    const todoTitle = document.createElement("span");
+    const todoTemp = document.createElement("span");
+    const deleteButton = document.createElement("button");
+
+    // li m add todo-collection__item;
+    li.classList.add("todo-collection__item");
+    todoTitle.classList.add("todo-collection__item__title");
+    todoTitle.innerText = todoInput.value;
+
+    fetch(`${api.base}weather?q=${todoInput.value}&units=metric&APPID=${api.key}`)
+    .then(weathe => {
+      return weathe.json();
+    }).then((weathe)=>
+    {
+      console.log(weathe)
+      
+    todoTemp.innerText = `${Math.round(weathe.main.temp)}°C`;
+
+    // todoTemp.innerText="301C";
+    deleteButton.classList.add("button");
+    deleteButton.innerText = "Delete";
+
+    // add elements to todo list
+    //li m append todoTitle
+    li.appendChild(todoTitle);
+    li.appendChild(todoTemp);
+    li.appendChild(deleteButton);
+    todoCollection.appendChild(li);
+
+    deleteButton.addEventListener("click", () => {
+      setTimeout(() => {
+        todoCollection.removeChild(li);
+      }, 100);
+    });
+  })
+  }
+  todoInput.value = "";
+  e.preventDefault();
+}
