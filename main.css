@@ -1,0 +1,232 @@
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: "Nirmala";
+    box-sizing: border-box;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a1040;
+  }
+  .whole {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tempFS {
+    font-size: 120px;
+    text-shadow: 1px 1px 17px rgba(255, 255, 255, 0.479);
+    font-weight: bold;
+    line-height: 130px;
+    margin-bottom: 10px;
+    box-shadow: 0 3 15px 3px;
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .cardFS {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .messageFS {
+    font-size: 4.5rem;
+    margin-right: 30px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .cityLocationFS {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .titleFS {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .dateFS--big {
+    font-size: 35px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+  }
+  .dateFS {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .textFS--bold {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+  }
+  .skinnyFS {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 30px;
+    font-weight: regular;
+  }
+  .boldFS {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: bold;
+  }
+  .textFS {
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  #not_so {
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  i {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .medCloud {
+    width: 130px;
+    margin-top: 10px;
+  }
+  .iconSize {
+    width: 30px;
+  }
+  .smallSize {
+    width: 20px;
+  }
+  .superSmallSize {
+    width: 10px;
+  }
+  .medSize {
+    width: 40px;
+  }
+ 
+  .searchbar,
+  .searchbar--card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    transition: 0.4s all;
+    margin-bottom: 6px;
+  }
+  
+  .input_text {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+    border: none;
+    height: 34px;
+    padding: 0px 10px;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .input_button {
+    background-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+    border: none;
+    font-weight: bold;
+    width: 30%;
+    height: 34px;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+  }
+
+
+  hr {
+    border: none;
+    border-top: 3px solid rgba(255, 255, 255, 0.212);
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+  }
+  .setting_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  input[type="checkbox"] {
+    width: 50px;
+    height: 50px;
+  } 
+  .today {
+    background-color: #0e1544;
+    flex-grow: 1;
+    padding-top: 13px;
+    min-width: max-content;
+  } 
+  .area1 {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    /* font-size: 100px; */
+  }
+  .time-u {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .tempblock {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    position: relative;
+  }
+
+  .area2 {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    
+  }
+  .grid2 {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    row-gap: 25px;
+  }
+  .itemss {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .itemss .lolo {
+    display: flex;
+    flex-direction: column;
+  }
+  .weathericons {
+    width: 60px;
+  }
+  #location {
+    cursor: pointer;
+    height: inherit;
+    max-width: 50px;
+    flex: 1;
+    border-radius: 5px;
+    margin: 0px 3% 0px 0px;
+    padding: 3px 12px 3px 12px;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:skyblue;
+}

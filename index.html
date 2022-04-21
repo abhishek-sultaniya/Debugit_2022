@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="main.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/b93e0fb8d1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="whole">
+    <section class="today">
+      <div class="searchbar">
+        <input
+          type="image"
+          class="input_setting smallSize"
+          src=""
+        />
+        <input type="text" autocomplete="off" class="input_text textFS" placeholder="Enter your city" />
+        <input type="button" class="input_button textFS" value="Search" />
+      </div>
+
+      <div class="area1">
+        <div class="time-u">
+          <h4 class="dora skinnyFS"></h4>
+      </div>
+          <div class="time-u">
+              <h4 class="time skinnyFS"></h4>
+          </div>
+          <br>
+          <div class="description skinnyFS"></div>
+         
+          <div class="location cityLocationFS"></div>
+          <div class="tempblock">
+            <h2 class="temp tempFS"></h2>
+          </div>
+          <button id="location" onclick="location.reload()">
+            <i class="fa fa-map-marker" style='font-size:36px;'aria-hidden="true"></i>
+          </button>
+          <br>
+      </div>
+      <div class="area2">
+        <div class="grid2">
+          <div class="itemss">
+            <img class="weathericons" src="">
+            <i class='weathericons fas fa-wind' style='font-size:30px;color:white;'></i>
+            <div class="lolo">
+              <p class="textFS">Wind</p>
+              <h4 id="not_so" class="windy textFS--bold ">2.57m/s</h4>
+            </div>
+          </div>
+          <div class="itemss">
+            <img class="weathericons" src="">
+            <i class="fa-solid fa-temperature-half"style='font-size:36px;'></i>
+            <div class="lolo">
+              <p class="textFS">Feels like</p>
+              <h4 id="not_so" class="feel textFS--bold">41.95°</h4>
+            </div>
+          </div>
+          <div class="itemss">
+            <img class="weathericons" src="">
+            <i class='fas fa-cloud-rain' style='font-size:36px'></i>
+            <div class="lolo">
+              <p class="textFS">Chance of rain</p>
+              <h4 id="not_so" class="textFS--bold">0%</h4>
+            </div>
+          </div>
+              <div class="itemss">
+            <img class="weathericons " >
+            <i class='fas fa-temperature-high' style='font-size:36px;color:red'></i>
+            <div class="lolo">
+              <p class="textFS">Max Temprature</p>
+              <h4 id="not_so" class="maxtem textFS--bold"></h4>
+            </div>
+          </div>
+          <div class="itemss">
+            <img class="weathericons" src="">
+            <i class='fas fa-temperature-low' style='font-size:36px;color:skyblue'></i>
+            <div class="lolo">
+              <p class="textFS">Min Temprature</p>
+              <h4 id="not_so" class="mintem textFS--bold"></h4>
+            </div>
+          </div>
+          <div class="itemss">
+            <img class="weathericons" src="">
+            <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-humidity-weather-justicon-lineal-color-justicon.png"/>
+            <div class="lolo">
+              <p class="textFS">humidity</p>
+              <h4 id="not_so" class="humus textFS--bold"></h4>
+            </div>
+          </div>
+        </div></div>
+
+    </section>
+
+  <script  src="main.js"></script>
+</body>
