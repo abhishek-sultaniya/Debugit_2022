@@ -4,13 +4,23 @@ const api = {
   }
 
   var l=0;
+  //m for longitude 
   var m=0;
+
+  // bc stors button count
+  var bc=0,mc=0;
+  // gt stores global temprature
+  var gt=0,gt1=0,gt2=0,gt3=0;
+  var lt=0,lt1=0,lt2=0,lt3=0;
+
   console.log("hellocoord1");
+
   window.addEventListener("load",()=>{
      if (navigator.geolocation) 
     {
       navigator.geolocation.getCurrentPosition((position)=>
       {
+        mc=0;
     l=position.coords.latitude;
     m=position.coords.longitude;
     console.log("hellocoord");
@@ -34,7 +44,13 @@ const api = {
 
           // 3
           let temp = document.querySelector('.temp');
+           gt=Math.round(data.main.temp);
           temp.innerHTML = `${Math.round(data.main.temp)}<span>°c</span>`;
+          // if(bc%2 !=0)
+          // {
+          //   var k=(a*9/5)+32;
+          //   temp.innerHTML = `${k}<span>°F</span>`;
+          // }
 
           // 4
           let now = new Date();
@@ -51,12 +67,15 @@ const api = {
           windy.innerText = `${(data.wind.speed)} m/s`
           
     let feel = document.querySelector('.feel');
+    gt1=data.main.feels_like;
     feel.innerText = `${(data.main.feels_like)}°c`;
 
     let maxtem = document.querySelector('.maxtem');
+    gt2=data.main.temp_max;
     maxtem.innerText = `${(data.main.temp_max)}°c`;
 
     let mintem = document.querySelector('.mintem');
+    gt3=data.main.temp_min;
     mintem.innerText = `${(data.main.temp_min)}°c`;
 
     let humu = document.querySelector('.humus');
@@ -113,7 +132,7 @@ const api = {
       }).then((weather)=>
       {
         console.log(weather)
-
+        mc=1;
     let city = document.querySelector('.location');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
   
@@ -129,8 +148,9 @@ const api = {
     dora.innerText =  `${gg.getHours()}:${gg.getMinutes()+1}`;
   
     let temp = document.querySelector('.temp');
+    lt=Math.round(weather.main.temp);
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
-  
+      
     let weatherel = document.querySelector('.description');
     console.log(weather.weather[0].main)
     weatherel.innerText = weather.weather[0].main;
@@ -140,12 +160,15 @@ const api = {
     windy.innerText = `${(weather.wind.speed)} m/s`;
 
     let feel = document.querySelector('.feel');
+    lt1=weather.main.feels_like;
     feel.innerText = `${(weather.main.feels_like)}°c`;
 
     let maxtem = document.querySelector('.maxtem');
+    lt2=weather.main.temp_max;
     maxtem.innerText = `${(weather.main.temp_max)}°c`;
 
     let mintem = document.querySelector('.mintem');
+    lt3=weather.main.temp_min;
     mintem.innerText = `${(weather.main.temp_min)}°c`;
 
     let humu = document.querySelector('.humus');
@@ -157,6 +180,11 @@ const api = {
   const boxer = document.querySelector('.setting');
   const boxing = document.querySelector('.input_setting');
   boxing.addEventListener('click', removall);
+
+
+  const saver = document.querySelector('.closeButton');
+  saver.addEventListener('click', removall);
+ 
   function removall() {
     console.log("Toshiba")
     console.log(boxer.style.visibility)
@@ -164,12 +192,60 @@ const api = {
     if(boxer.style.visibility=="hidden")
     boxer.style.visibility="visible"
     else
-    boxer.style.visibility=="hidden"
+    boxer.style.visibility="hidden"
   }
 
-  // const boxer = document.querySelector('.saveButton');
-  // boxer.addEventListener('click', removall);
-  // function removall() {
-  //   console.log("To")
-  //   boxer.style.visibility="hidden"; 
-  // }
+  const unit = document.querySelector('.setting_temp');
+  unit.addEventListener('click', ctof);
+ 
+  // This function handles celsius to Farahan
+  function ctof() {
+    console.log("Yo checker")
+    console.log(bc)
+    bc++;
+    let temp = document.querySelector('.temp');
+    let feel = document.querySelector('.feel');
+    let maxtem = document.querySelector('.maxtem');
+    let mintem = document.querySelector('.mintem');
+    console.log(gt)
+    var k=Math.round((gt*9/5)+32);
+    var k1=Math.round((gt1*9/5)+32);
+    var k2=Math.round((gt2*9/5)+32);
+    var k3=Math.round((gt3*9/5)+32);
+
+    var gg=Math.round((lt*9/5)+32);
+    var gg1=Math.round((lt1*9/5)+32);
+    var gg2=Math.round((lt2*9/5)+32);
+    var gg3=Math.round((lt3*9/5)+32);
+
+      if(bc%2 !=0 && mc==0)
+    {
+      temp.innerHTML = `${k}<span>°F</span>`;
+      feel.innerText = `${k1}°F`;
+      maxtem.innerText = `${k2}°F`;
+      mintem.innerText = `${k3}°F`;
+    }
+    else if(bc %2==0 && mc==0)
+    {
+      temp.innerHTML = `${gt}<span>°C</span>`;
+      feel.innerText = `${gt1}°C`;
+      maxtem.innerText = `${gt2}°C`;
+      mintem.innerText = `${gt3}°C`;
+    } 
+    if(bc%2 !=0 && mc==1)
+    {
+      temp.innerHTML = `${gg}<span>°F</span>`;
+      feel.innerText = `${gg1}°F`;
+      maxtem.innerText = `${gg2}°F`;
+      mintem.innerText = `${gg3}°F`;
+    }
+    else if(bc %2==0 && mc==1)
+    {
+      temp.innerHTML = `${lt}<span>°C</span>`;
+      feel.innerText = `${lt1}°C`;
+      maxtem.innerText = `${lt2}°C`;
+      mintem.innerText = `${lt3}°C`;
+    } 
+    console.log("Yo checker22")
+  }
+

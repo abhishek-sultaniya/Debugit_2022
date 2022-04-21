@@ -14,7 +14,6 @@
   }
 
   body {
-    font-family: "Nirmala";
     box-sizing: border-box;
     width: 100vw;
     display: flex;
@@ -25,7 +24,7 @@
     display: flex;
     flex-direction: row;
   }
-
+ 
   .tempFS {
     font-size: 120px;
     text-shadow: 1px 1px 17px rgba(255, 255, 255, 0.479);
@@ -35,18 +34,7 @@
     box-shadow: 0 3 15px 3px;
     color: rgba(255, 255, 255, 0.88);
   }
-  .cardFS {
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 37px;
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .messageFS {
-    font-size: 4.5rem;
-    margin-right: 30px;
-    color: #fff;
-    font-weight: bold;
-  }
+
   .cityLocationFS {
     font-size: 30px;
     font-weight: bold;
@@ -58,16 +46,7 @@
     font-weight: bold;
     font-size: 20px;
   }
-  .dateFS--big {
-    font-size: 35px;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: bold;
-  }
-  .dateFS {
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: bold;
-    font-size: 18px;
-  }
+ 
   .textFS--bold {
     font-size: 16px;
     color: rgba(255, 255, 255, 0.7);
@@ -95,25 +74,11 @@
     font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
   }
-  .medCloud {
-    width: 130px;
-    margin-top: 10px;
-  }
-  .iconSize {
-    width: 30px;
-  }
+    
   .smallSize {
     width: 20px;
   }
-  .superSmallSize {
-    width: 10px;
-  }
-  .medSize {
-    width: 40px;
-  }
- 
-  .searchbar,
-  .searchbar--card {
+   .searchbar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,7 +86,7 @@
     transition: 0.4s all;
     margin-bottom: 6px;
   }
-  
+
   .input_text {
     background-color: rgba(255, 255, 255, 0.3);
     outline: none;
@@ -144,12 +109,45 @@
   }
 
 
+  /* CSS OF MY BOX */
+  .setting {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #040a33;
+    border-radius: 10px;
+ 
+    border: 5px solid rgb(169, 169, 238);
+    /* visibility: hidden; */
+  }
+  .setting_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .closeButton {
+    background-color: #34495e;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .setting_body {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
   hr {
     border: none;
     border-top: 3px solid rgba(255, 255, 255, 0.212);
-    color: #333;
-    overflow: visible;
-    text-align: center;
     height: 5px;
   }
   .setting_item {
@@ -160,7 +158,61 @@
   input[type="checkbox"] {
     width: 50px;
     height: 50px;
-  } 
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* Copied slider idea and its css */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1c5855;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  input:checked + .slider {
+    background-color: #2e4a61a4;
+  }
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2e4a61a4;
+  }
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  /* section1 */
   .today {
     background-color: #0e1544;
     flex-grow: 1;
@@ -179,21 +231,18 @@
     display: flex;
     align-items: flex-end;
   }
-
   .tempblock {
     display: grid;
     grid-template-columns: auto auto auto;
     align-items: center;
     position: relative;
   }
-
   .area2 {
     display: flex;
     padding: 20px;
     justify-content: center;
     align-items: center;
-    margin: 0 20px;
-    
+    margin: 0 20px;    
   }
   .grid2 {
     display: grid;
@@ -213,9 +262,6 @@
     display: flex;
     flex-direction: column;
   }
-  .weathericons {
-    width: 60px;
-  }
   #location {
     cursor: pointer;
     height: inherit;
@@ -230,3 +276,92 @@
     align-items: center;
     background-color:skyblue;
 }
+
+  @media (min-width: 320px) and (max-width: 1408px) {
+    .today {
+      min-width: 350px;
+    }
+    .today .weathericons {
+      width: 50px;
+    }
+    .today .grid2 {
+      gap: 15px;
+    }
+    .area1 {
+      padding-bottom: 0;
+    }
+    .area2 {
+      padding-top: 0;
+    }
+    .tempFS {
+      font-size: 120px;
+      line-height: normal;
+    }
+    .medCloud {
+      width: 90px;
+    }
+  }
+  @media (max-width: 1008px) {
+    .whole {
+      display: flex;
+      flex-direction: column;
+    }
+    .forecast_section {
+      padding: 15px;
+    }
+    .card_title_section {
+      padding-left: 15px;
+    }
+    .card_section {
+      overflow: visible;
+    }
+    .cardContainer {
+      overflow: visible;
+      height: auto;
+      padding-bottom: 20px;
+    }
+    .btnWrapper {
+      margin-left: 10px;
+    }
+   
+    .area1 {
+      margin: 0;
+    }
+    .tempblock {
+      width: 300px;
+    }
+    .area2 {
+      margin: 0 5px;
+    }
+    .forecast_section {
+      padding-bottom: 10px;
+    }
+    .cityLocationFS {
+      font-size: 26.9px;
+    }
+  }
+  @media (min-width: 500px) and (max-width: 1008px) {
+    .cardContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
+    }
+  }
+  @media (max-width: 340px) {
+    .today {
+      min-width: 300px;
+    }
+    .today .weathericons {
+      width: 40px;
+    }
+    .today .grid2 {
+      gap: 5px;
+    }
+    .today .area1 {
+      padding: 0px;
+    }
+    .tempblock {
+      width: 270px;
+    }
+  }
+
