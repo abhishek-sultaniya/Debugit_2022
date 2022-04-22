@@ -79,14 +79,7 @@
     transition: 0.4s all;
     margin-bottom: 6px;
   }
-  /* .input_setting {
-    padding: 5px;
-    margin-right: 3px;
-    border-radius: 20px;
-  }
-  .input_setting:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  } */
+
   .input_text {
     background-color: rgba(255, 255, 255, 0.3);
     outline: none;
