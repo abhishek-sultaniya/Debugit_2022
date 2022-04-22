@@ -408,3 +408,22 @@ async function addTodo(e)
   todoInput.value = "";
   e.preventDefault();
 }
+
+
+const theme = document.querySelector('.setting_clock');
+theme.addEventListener('click', popo);
+
+function popo()
+{
+  console.log("theme");
+  document.getElementById("f1").classList.toggle("todaydark")
+  document.getElementById("f2").classList.toggle("card_sectiondark")
+  document.getElementById("f3").classList.toggle("tempdarkFS")
+  // console.log(document.querySelectorAll(".setting").style.background-color)
+  // console.log("theme6");
+  
+  document.getElementById("f5").classList.toggle("settingda")
+  // document.getElementById("f5").classList.toggle("setting")
+  // document.getElementById("not_so").idList.toggle("not_sod")
+  // document.querySelectorAll(".textFs").classList.toggle("textFSdark")
+}
