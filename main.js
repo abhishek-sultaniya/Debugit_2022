@@ -3,6 +3,7 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/"
   }
 
+  var etmp=0;
   var l=0;
   //m for longitude 
   var m=0;
@@ -257,57 +258,152 @@ const api = {
 const todoForm = document.querySelector(".addCard")
 const todoInput = document.querySelector(".card_input");
 const todoCollection = document.querySelector(".card_collection");
-
+let id=1;
 todoForm.addEventListener("click", addTodo);
 
-function addTodo(e) 
+function extracttemp()
 {
-  console.log("krpa")
-  if (todoInput.value=== "") {
-    // alert to indicate that the user must input something
-    alert("enter something!");
-  } 
-  else 
-  {
-    // create elements
-    // li
-    console.log(todoInput.value);
-    const li = document.createElement("li");
-    const todoTitle = document.createElement("span");
-    const todoTemp = document.createElement("span");
-    const deleteButton = document.createElement("button");
-
-    // li m add todo-collection__item;
-    li.classList.add("todo-collection__item");
-    todoTitle.classList.add("todo-collection__item__title");
-    todoTitle.innerText = todoInput.value;
-
+  return new Promise((resolve,reject)=>{
     fetch(`${api.base}weather?q=${todoInput.value}&units=metric&APPID=${api.key}`)
     .then(weathe => {
       return weathe.json();
     }).then((weathe)=>
     {
-      console.log(weathe)
-      
-    todoTemp.innerText = `${Math.round(weathe.main.temp)}°C`;
-
-    // todoTemp.innerText="301C";
-    deleteButton.classList.add("button");
-    deleteButton.innerText = "Delete";
-
-    // add elements to todo list
-    //li m append todoTitle
-    li.appendChild(todoTitle);
-    li.appendChild(todoTemp);
-    li.appendChild(deleteButton);
-    todoCollection.appendChild(li);
-
-    deleteButton.addEventListener("click", () => {
-      setTimeout(() => {
-        todoCollection.removeChild(li);
-      }, 100);
-    });
+      console.log("krpa32")
+      etmp=`${Math.round(weathe.main.temp)}`;
+      console.log(etmp)
+      resolve();
+    })
   })
+}
+
+if(JSON.parse(localStorage.getItem('todoItems')) ===null || JSON.parse(localStorage.getItem("todoItems")).length == 0)
+{
+  id=1;
+}
+else
+{
+  id=JSON.parse(localStorage.getItem("todoItems"))[JSON.parse(localStorage.getItem("todoItems")).length -1].id+1 ;
+  JSON.parse(localStorage.getItem('todoItems')).map(todo=>{
+    console.log(todoInput.value);
+   const li = document.createElement("li");
+   const todoTitle = document.createElement("span");
+   const todoTemp = document.createElement("span");
+   const deleteButton = document.createElement("button");
+
+ 
+   li.classList.add("todo-collection__item");
+   todoTitle.classList.add("todo-collection__item__title");
+  //  todoTitle.innerText = todoInput.value;
+   todoTitle.innerText = todo.name;
+     
+   // todoTemp.innerText = `${Math.round(weathe.main.temp)}°C`;
+   
+   console.log("krpa22")
+   todoTemp.innerText = `${todo.temp}°C`;
+   
+
+   // todoTemp.innerText="301C";
+   deleteButton.classList.add("button");
+   deleteButton.innerText = "Delete";
+
+   // add elements to todo list
+   //li m append todoTitle
+   li.appendChild(todoTitle);
+   li.appendChild(todoTemp);
+   li.appendChild(deleteButton);
+   todoCollection.appendChild(li);
+
+   deleteButton.addEventListener("click", () => {
+    setTimeout(() => {
+      todoCollection.removeChild(li);
+    }, 100);
+  });
+
+})
+}
+async function addTodo(e) 
+{
+  console.log("krpa")
+  await extracttemp();
+
+  const value=todoInput.value;
+  const value2=`${etmp}`;
+
+  console.log(value)
+  console.log(value2)
+
+  let items=[];
+  let item=
+  {
+    id:id,
+    name:value,
+    temp:value2
+  };
+  console.log(item);
+
+  if (todoInput.value=== "") 
+  {
+    alert("enter something!");
+  } 
+  else 
+  {
+    console.log("item se pehle");
+    console.log(item);
+    if(JSON.parse(localStorage.getItem('todoItems'))===null)
+    {
+      items.push(item);
+      localStorage.setItem('todoItems',JSON.stringify(items));
+      window.location.reload();
+      alert('item added');
+    }
+    else
+    {
+      JSON.parse(localStorage.getItem('todoItems')).map(todo=>{
+        items.push(todo);
+      });
+      items.push(item);
+      localStorage.setItem('todoItems',JSON.stringify(items));
+      window.location.reload();
+      alert('item added');
+    }
+
+    console.log("item ke baad");
+
+
+    // console.log(todoInput.value);
+    // const li = document.createElement("li");
+    // const todoTitle = document.createElement("span");
+    // const todoTemp = document.createElement("span");
+    // const deleteButton = document.createElement("button");
+
+  
+    // li.classList.add("todo-collection__item");
+    // todoTitle.classList.add("todo-collection__item__title");
+    // todoTitle.innerText = todoInput.value;
+
+      
+    // // todoTemp.innerText = `${Math.round(weathe.main.temp)}°C`;
+    
+    // console.log("krpa22")
+    // todoTemp.innerText = `${etmp}`;
+
+    // // todoTemp.innerText="301C";
+    // deleteButton.classList.add("button");
+    // deleteButton.innerText = "Delete";
+
+    // // add elements to todo list
+    // //li m append todoTitle
+    // li.appendChild(todoTitle);
+    // li.appendChild(todoTemp);
+    // li.appendChild(deleteButton);
+    // todoCollection.appendChild(li);
+
+    // deleteButton.addEventListener("click", () => {
+    //   setTimeout(() => {
+    //     todoCollection.removeChild(li);
+    //   }, 100);
+    // });
   }
   todoInput.value = "";
   e.preventDefault();
