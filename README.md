@@ -1,15 +1,25 @@
-## Debugit 2022
+## Debugit 2022--Temp-flow
 
 
-## Introduction
-Debugit is a week long hackathon open to ideas in a very literal sense. You can make anything from the projects' list we'll share or ignite the inquisitive Bob the Builder inside you to make something exciting and completely new!
+## Introduction and explaination
+This is a simple weather app which extracts your location when you open it and then you can also search for weather condition of any place.
+It tells you rain forecast,max temprature,min temprature,humidity,wind speed.
+It has a location button through which you can transverse to your location again.
+You can add different cities to watch list as it stores on local storage.
+You can check weather of a week too.
+Dark mode and light mode also avilable.
+Through a button you can change all tempratures to Celcius to Fahrenheit.
+It is a completely responsive website.
 
-## How to make a submission?
-Submissions are to be made through GitHub Pull Requests. To know more about how to make a GitHub Pull Request you can refer the [Fundamentals of Git](https://www.youtube.com/playlist?list=PLLt4yMoVgczVgFcTzT60U5IXtNX1qjHL9) playlist which contains everything that you would need.
 
-## Make sure to include
-  - A README.md file with your name, contact information, project description and how to run the code (and other necessary information).
-  - A folder containing a demo video of your project.
+## Tech Stack Used
+  - HTML.
+  - CSS to beautify the website.
+  - Javascript.
+  - Open weather APIS to fetch data about weather.
 
-## Here is a detailed step by step walkthrough if you don't know how to make a Debugit submission.
+## Scope and Improvements
+   - Will complete the map feature first,where you can see the location by maps.
+   - Improving the bugs and working on light theme
+   - All the other suggestions are welcome.
 
