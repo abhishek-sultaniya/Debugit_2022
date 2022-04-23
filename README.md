@@ -29,7 +29,7 @@ There is also half implemented map where you can check the weather.
    - Many more.....
 
 ## Video Demonstration
-[Video]()
+[Video](https://drive.google.com/file/d/1xE7P9XwGZT599JxCLq_J_Liph2Txx5wX/view?usp=sharing)
   
   ## Why I choose this project
    - As I had plans scheduled this week,I choose a project which I could complete in 5 days and learn something new.
