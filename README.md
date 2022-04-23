@@ -36,7 +36,7 @@ There is also half implemented map where you can check the weather.
    - Never worked with locations and weather APIs,so wanted to try something new.
    - Wanted to implement simple JS features such as dark/light mode in a project.
    - Wanted to learn local storages
-   - Was boared of studying node js,so choose a project on JS where I can revise.Take a look at hackoverflow project where I implemented backend a week earlier https://github.com/abhishek-sultaniya/triquetra-hackoverflow
+   - Was boared of studying node js,so choose a project on JS where I can revise.
 
 ## Scope and Improvements
    - Will complete the map feature first,where you can see the location by maps.
